@@ -5,20 +5,27 @@ class Board(numberOfDisksPerPole: Int) {
   private val lineSeparator = System.lineSeparator();
   
   
-   def moveDisks(disk: Int, beginningPole: Int, auxiliaryPole: Int, destinationPole: Int, displayAfterMove: (Board) => String): Board  = {
+   def moveDisks(disk: Int, beginningPole: Int, auxiliaryPole: Int, destinationPole: Int, displayAfterMove: (Board) => String): Unit  = {
+     System.out.println("we are moving disk: " + disk +" from: "+ beginningPole +" to: " + destinationPole)
      if (disk == 1) {
+       System.out.println("reached base case..") 
        moveDisk(beginningPole, destinationPole)
-       this
+       displayAfterMove(this)
      }
      else {
+       System.out.println("not top disk, moving disk above it.")
        moveDisks(disk-1, beginningPole, destinationPole, auxiliaryPole,displayAfterMove)
+       displayAfterMove(this)
        moveDisks(0, beginningPole, auxiliaryPole, destinationPole,displayAfterMove)
+       displayAfterMove(this)
        moveDisks(disk-1, auxiliaryPole,beginningPole,destinationPole,displayAfterMove)
+       displayAfterMove(this)
        
      }
    }
   
    def moveDisk(source: Int, dest: Int) = {
+     System.out.println("calling move disk")
      val sourcePole = poles(source -1) //index
      val sourceDisk = sourcePole.removeDisk()
      val destPole = poles(dest - 1) //index
