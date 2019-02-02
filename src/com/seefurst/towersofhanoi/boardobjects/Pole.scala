@@ -15,7 +15,8 @@ class Pole(numberOfDisks: Int) {
       newDisks;
     }
   private def canAccept(disk: Disk) : Boolean = {
-      if (disks.peek.size > disk.size) true;
+      if (disks.size() == 0 ) true;
+      else if (disks.peek.size > disk.size) true;
       else false;
     }
   def addDisk(disk: Disk) = {
