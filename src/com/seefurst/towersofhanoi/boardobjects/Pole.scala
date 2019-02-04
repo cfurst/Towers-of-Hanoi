@@ -1,6 +1,7 @@
 package com.seefurst.towersofhanoi.boardobjects
 
 import java.util.Stack;
+import java.util.EmptyStackException;
 
 
 class Pole(numberOfDisks: Int) {
@@ -24,7 +25,11 @@ class Pole(numberOfDisks: Int) {
           disks.push(disk);
   }
   def removeDisk(): Disk = {
-    disks.pop();
+    try {
+      disks.pop();
+    } catch {
+      case e: EmptyStackException => null // use Option????
+    }
   }
   
   def numberOfDisksOnPole: Int = {
