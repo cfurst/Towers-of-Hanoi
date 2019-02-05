@@ -25,14 +25,13 @@ class Board(numberOfDisksPerPole: Int) {
    def moveDisk(source: Int, dest: Int) = {
      //System.out.println("calling move disk, beginning pole: " + source + " dest pole: " + dest)
      val sourcePole = poles(source) //index
-     val sourceDisk = sourcePole.removeDisk()
-     //System.out.println("source disk: " + sourceDisk)
-     if (sourceDisk == null ) throw new IllegalStateException;
-     
      val destPole = poles(dest) //index
-     destPole.addDisk(sourceDisk)
-     
-   }
+     val sourceDiskOption = sourcePole.removeDisk()
+     sourceDiskOption match {
+       case Some(sourceDisk) => destPole.addDisk(sourceDisk)
+       case None => throw new IllegalStateException;
+     }
+  }
    
    def isFinished: Boolean = {
      poles(poles.length - 1).numberOfDisksOnPole == numberOfDisksPerPole
