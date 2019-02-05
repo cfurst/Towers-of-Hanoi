@@ -12,7 +12,7 @@ class Pole(numberOfDisks: Int) {
       println("numberOfDisks: " + numberOfDisks);
       val newDisks = new Stack[Disk]();
       for (i <- numberOfDisks - 1 to 0 by -1 
-              if (i >= 0)) { // the smalledst disk should be the last in ... so
+              if (i >= 0)) { // the smallest disk should be the last in ... so
        println("pushing disk " + i)
         newDisks.push(new Disk(i));
       }
@@ -26,6 +26,8 @@ class Pole(numberOfDisks: Int) {
   def addDisk(disk: Disk) = {
     if (canAccept(disk))
           disks.push(disk);
+    else throw new IllegalArgumentException("disk of size: " + disk.size + " is not allowed on this pole: " + this)
+                                           
   }
   def removeDisk(): Disk = {
     try {
