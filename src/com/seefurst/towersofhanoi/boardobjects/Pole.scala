@@ -9,11 +9,11 @@ class Pole(numberOfDisks: Int) {
     private val lineSeparator = System.lineSeparator();
     
     def initDisks: Stack[Disk] = {
-      println("numberOfDisks: " + numberOfDisks);
+      // println("numberOfDisks: " + numberOfDisks);
       val newDisks = new Stack[Disk]();
       for (i <- numberOfDisks - 1 to 0 by -1 
               if (i >= 0)) { // the smallest disk should be the last in ... so
-       println("pushing disk " + i)
+      // println("pushing disk " + i)
         newDisks.push(new Disk(i));
       }
       newDisks;
