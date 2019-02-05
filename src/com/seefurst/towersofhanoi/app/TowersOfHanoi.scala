@@ -13,7 +13,7 @@ object TowersOfHanoi {
   
   def play(x: Int, board: (Int) => Board) = {
     val b = board(x);
-    println("we have the board set up like this: " + b);
+    println("we have the board set up like this:\n " + b);
     b.moveDisks(x-1,0,1,2, b => println(b))
     
   }
