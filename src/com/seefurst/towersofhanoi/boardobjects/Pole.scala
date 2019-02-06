@@ -29,11 +29,11 @@ class Pole(numberOfDisks: Int) {
     else throw new IllegalArgumentException("disk of size: " + disk.size + " is not allowed on this pole: " + this)
                                            
   }
-  def removeDisk(): Disk = {
+  def removeDisk(): Option[Disk] = {
     try {
-      disks.pop();
+      Some(disks.pop());
     } catch {
-      case e: EmptyStackException => null // use Option????
+      case e: EmptyStackException => None // use Option????
     }
   }
   
