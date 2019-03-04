@@ -10,6 +10,6 @@ which will create a new folder `classes` within the checkout. From there you can
 
 ```scala -cp classes com.seefurst.towersofhanoi.app.TowersOfHanoi n``` 
 
-where n is the number of disks you can start out with. Usually people use 3 but there is no default ATM.
+where `n` is the number of disks you can start out with. Usually people use 3 but there is no default ATM.
 
 ## This is currently a work in progress.
