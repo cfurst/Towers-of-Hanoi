@@ -14,4 +14,4 @@ where `n` is the number of disks you can start out with. Usually people use 3 bu
 
 This project was compiled and run using scala 2.12.3. Please post compilation and runtime issues with other versions in the *issues* section.
 
-## This is currently a work in progress.
+### This is currently a work in progress.
